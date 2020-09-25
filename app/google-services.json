@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "680287900640",
+    "firebase_url": "https://textbookuser-4e407.firebaseio.com",
+    "project_id": "textbookuser-4e407",
+    "storage_bucket": "textbookuser-4e407.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680287900640:android:75c4ce97b0aba09d351185",
+        "android_client_info": {
+          "package_name": "com.example.sppucomptextbooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680287900640-6sb9tp2p216totjk2hffpn2ec1nc29gs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ-eYXnB0mt5jBhTxI2-Er-zMuHpPONTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680287900640-6sb9tp2p216totjk2hffpn2ec1nc29gs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
