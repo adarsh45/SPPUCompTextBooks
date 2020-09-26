@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,8 +20,9 @@ public class FoldersScreen extends AppCompatActivity {
 
     // Folders Screen - Buttons to move to Specific Subject
 
-    TextView textSubject;
-    ImageButton mOOPButton;
+    TextView textSubject, textFDS, textDM, textOOP, textDELD, textCG;
+
+    Button fdsBtn1, dmBtn1, oopBtn1, deldBtn1, cgBtn1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,16 +32,64 @@ public class FoldersScreen extends AppCompatActivity {
 
         FirebaseAuth.getInstance();
 
-        mOOPButton = findViewById(R.id.oopBtn);
         textSubject = findViewById(R.id.textSubj);
+        textFDS = findViewById(R.id.textFDS);
+        textDM = findViewById(R.id.textDM);
+        textDELD = findViewById(R.id.textDELD);
+        textOOP = findViewById(R.id.textOOP);
+        textCG = findViewById(R.id.textCG);
 
-        mOOPButton.setOnClickListener(new View.OnClickListener() {
+        fdsBtn1 = findViewById(R.id.fds_pdf1_btn);
+        dmBtn1 = findViewById(R.id.dm_pdf1_btn);
+        oopBtn1 = findViewById(R.id.oop_pdf1_btn);
+        deldBtn1 = findViewById(R.id.deld_pdf1_btn);
+        cgBtn1 = findViewById(R.id.cg_pdf1_btn);
+
+        fdsBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FoldersScreen.this, OOPScreen.class);
-                startActivity(intent);
+                // TODO : Send file name to PDFViewer Activity
+                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+
             }
         });
+
+
+        dmBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : Send file name to PDFViewer Activity
+                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        oopBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : Send file name to PDFViewer Activity
+                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        cgBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : Send file name to PDFViewer Activity
+                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        deldBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : Send file name to PDFViewer Activity
+                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 

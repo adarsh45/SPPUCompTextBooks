@@ -1,7 +1,6 @@
 package com.example.sppucomptextbooks;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
@@ -21,8 +20,6 @@ import java.util.List;
 
 public class PDFViewer extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener, OnPageErrorListener {
 
-
-
     int pageNumber = 0;
     PDFView pdfView;
     String pdfFileName = "syllabus.pdf";
@@ -31,14 +28,14 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_viewer);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//To PREVENT SCREENSHOT
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+
+
+        // TODO: Get file name from FolderScreens Activity
+
 
         pdfView = findViewById(R.id.pdfView);
-
-        String pdfURL = getIntent().getStringExtra("pdfURL");
-
-
-        pdfView.fromUri(Uri.parse(pdfURL))
+        pdfView.fromAsset("syllabus.pdf")
                 .defaultPage(pageNumber)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)

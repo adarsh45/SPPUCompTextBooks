@@ -11,69 +11,177 @@
         android:id="@+id/textSubj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-black"
         android:text="SUBJECTS"
         android:textColor="#000"
-        android:fontFamily="sans-serif-black"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/oopBtn"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="168dp"
-        android:src="@drawable/folder_oop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/deldBtn"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="168dp"
+    <TextView
+        android:id="@+id/textFDS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="FDS :- "
+        android:textColor="#4C3508"
+        android:textSize="24sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/folder_deld" />
+        app:layout_constraintTop_toBottomOf="@+id/textSubj" />
 
-    <ImageButton
-        android:id="@+id/fdsBtn"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="300dp"
-        android:src="@drawable/folder_fds"
+    <Button
+        android:id="@+id/fds_pdf1_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/pdf_btn_style"
+        android:text="FDS PDF 1 (XYZ).pdf"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textFDS" />
 
-    <ImageButton
-        android:id="@+id/dmBtn"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="168dp"
-        android:src="@drawable/folder_dm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- TODO : Add another button if another pdf for all SUBJECTS if needed -->
 
-    <ImageButton
-        android:id="@+id/cgBtn"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="300dp"
-        android:src="@drawable/folder_cg"
+    <TextView
+        android:id="@+id/textDM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="95dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="DM :- "
+        android:textColor="#4C3508"
+        android:textSize="24sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textFDS" />
+
+    <Button
+        android:id="@+id/dm_pdf1_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/pdf_btn_style"
+        android:text="DM PDF 1 (XYZ).pdf"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDM" />
+
+
+
+    <TextView
+        android:id="@+id/textOOP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="95dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="OOP :- "
+        android:textColor="#4C3508"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDM" />
+
+    <Button
+        android:id="@+id/oop_pdf1_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/pdf_btn_style"
+        android:text="OOP PDF 1 (XYZ).pdf"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textOOP" />
+
+    <TextView
+        android:id="@+id/textDELD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="95dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="DELD :- "
+        android:textColor="#4C3508"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textOOP" />
+
+    <Button
+        android:id="@+id/deld_pdf1_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/pdf_btn_style"
+        android:text="DELD PDF 1 (XYZ).pdf"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDELD" />
+
+    <TextView
+        android:id="@+id/textCG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="95dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="CG :- "
+        android:textColor="#4C3508"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDELD" />
+
+
+    <Button
+        android:id="@+id/cg_pdf1_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/pdf_btn_style"
+        android:text="CG PDF 1 (XYZ).pdf"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCG" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

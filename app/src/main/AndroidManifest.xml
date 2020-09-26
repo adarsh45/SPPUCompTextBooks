@@ -22,7 +22,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoldersScreen" />
-        <activity android:name=".OOPScreen" />
         <activity android:name=".PDFViewer" />
     </application>
 
