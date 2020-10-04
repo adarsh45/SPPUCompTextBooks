@@ -1,6 +1,7 @@
 package com.example.sppucomptextbooks;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -23,6 +24,8 @@ public class FoldersScreen extends AppCompatActivity {
     TextView textSubject, textFDS, textDM, textOOP, textDELD, textCG;
 
     Button fdsBtn1, dmBtn1, oopBtn1, deldBtn1, cgBtn1;
+
+//TODO : PDF test to be done with intent
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,8 +51,10 @@ public class FoldersScreen extends AppCompatActivity {
         fdsBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : Send file name to PDFViewer Activity
-                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                intent.putExtra("pdfName", "syllabus.pdf");
+                startActivity(intent);
+                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -58,8 +63,10 @@ public class FoldersScreen extends AppCompatActivity {
         dmBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : Send file name to PDFViewer Activity
-                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                intent.putExtra("pdfName", "syllabus.pdf");
+                startActivity(intent);
+                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -67,8 +74,10 @@ public class FoldersScreen extends AppCompatActivity {
         oopBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : Send file name to PDFViewer Activity
-                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                intent.putExtra("pdfName", "syllabus.pdf");
+                startActivity(intent);
+                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -76,8 +85,10 @@ public class FoldersScreen extends AppCompatActivity {
         cgBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : Send file name to PDFViewer Activity
-                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                intent.putExtra("pdfName", "syllabus.pdf");
+                startActivity(intent);
+                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -85,8 +96,10 @@ public class FoldersScreen extends AppCompatActivity {
         deldBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : Send file name to PDFViewer Activity
-                Toast.makeText(FoldersScreen.this, "CLICKED", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                intent.putExtra("pdfName", "syllabus.pdf");
+                startActivity(intent);
+                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
             }
         });
 

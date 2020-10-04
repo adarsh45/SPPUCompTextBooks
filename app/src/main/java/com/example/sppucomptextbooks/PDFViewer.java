@@ -22,7 +22,7 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
 
     int pageNumber = 0;
     PDFView pdfView;
-    String pdfFileName = "syllabus.pdf";
+    String pdfFileName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,8 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
         setContentView(R.layout.activity_pdf_viewer);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-
-        // TODO: Get file name from FolderScreens Activity
-
+//TODO : PDF test to be done with intent
+        pdfFileName = getIntent().getStringExtra("pdfName");
 
         pdfView = findViewById(R.id.pdfView);
         pdfView.fromAsset("syllabus.pdf")
