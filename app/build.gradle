@@ -31,6 +31,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.firebase:firebase-database:19.5.0'
     implementation 'com.github.barteksc:android-pdf-viewer:3.0.0-beta.5'
+    implementation 'com.shreyaspatil:EasyUpiPayment:3.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
