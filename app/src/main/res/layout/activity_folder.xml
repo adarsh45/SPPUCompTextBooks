@@ -308,7 +308,7 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_marginStart="8dp"
-                            android:src="@drawable/pdf"/>
+                            android:src="@drawable/pdf" />
 
                         <Button
                             android:id="@+id/dm_pdf1_btn"
