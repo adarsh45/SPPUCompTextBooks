@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,303 +7,328 @@
     android:layout_height="match_parent"
     android:background="#c1c1c1">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/button_pay"
+        android:onClick="payThroughUPI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_pay_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_pay" />
 
-        <TextView
-            android:id="@+id/textSubj"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_pay_status">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-black"
-            android:textAlignment="center"
-            android:text="SUBJECTS"
-            android:textColor="#000"
-            android:textSize="28sp"
-            android:background="#c1c1c1" />
+            android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            android:background="@android:color/white"
-            >
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/textSubj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="16dp"
+                android:background="#c1c1c1"
+                android:fontFamily="sans-serif-black"
+                android:text="SUBJECTS"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="28sp" />
 
-                <TextView
-                    android:id="@+id/textFDS"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="FDS :- "
-                    android:textColor="#4C3508"
-                    android:textSize="27sp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/white"
+                android:padding="30dp"
+                app:cardCornerRadius="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf"/>
+                    <TextView
+                        android:id="@+id/textFDS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="FDS :- "
+                        android:textColor="#4C3508"
+                        android:textSize="27sp"
+                        android:textStyle="italic" />
 
-                    <Button
-                        android:id="@+id/fds_pdf1_btn"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="300dp"
-                        android:layout_height="45dp"
-                        android:layout_marginVertical="2dp"
-                        android:background="@drawable/pdf_btn_style"
-                        android:text="FDS PDF 1 (XYZ).pdf"
-                        android:textAlignment="textStart"
-                        android:textAllCaps="false"
-                        android:textSize="18sp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/pdf" />
+
+                        <Button
+                            android:id="@+id/fds_pdf1_btn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="300dp"
+                            android:layout_height="45dp"
+                            android:layout_marginVertical="2dp"
+                            android:background="@drawable/pdf_btn_style"
+                            android:text="FDS PDF 1 (XYZ).pdf"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            android:background="@android:color/white"
-            >
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textOOP"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="OOP :- "
-                    android:textColor="#4C3508"
-                    android:textSize="27sp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"/>
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/white"
+                android:padding="30dp"
+                app:cardCornerRadius="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf"/>
+                    <TextView
+                        android:id="@+id/textOOP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="OOP :- "
+                        android:textColor="#4C3508"
+                        android:textSize="27sp"
+                        android:textStyle="italic" />
 
-                    <Button
-                        android:id="@+id/oop_pdf1_btn"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="300dp"
-                        android:layout_height="45dp"
-                        android:layout_marginVertical="2dp"
-                        android:background="@drawable/pdf_btn_style"
-                        android:text="OOP PDF 1 (XYZ).pdf"
-                        android:textAllCaps="false"
-                        android:textSize="18sp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/pdf" />
+
+                        <Button
+                            android:id="@+id/oop_pdf1_btn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="300dp"
+                            android:layout_height="45dp"
+                            android:layout_marginVertical="2dp"
+                            android:background="@drawable/pdf_btn_style"
+                            android:text="OOP PDF 1 (XYZ).pdf"
+                            android:textAllCaps="false"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            android:background="@android:color/white"
-            >
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textDELD"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="DELD :- "
-                    android:textColor="#4C3508"
-                    android:textSize="27sp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"/>
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/white"
+                android:padding="30dp"
+                app:cardCornerRadius="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf"/>
+                    <TextView
+                        android:id="@+id/textDELD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="DELD :- "
+                        android:textColor="#4C3508"
+                        android:textSize="27sp"
+                        android:textStyle="italic" />
 
-                    <Button
-                        android:id="@+id/deld_pdf1_btn"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="300dp"
-                        android:layout_height="45dp"
-                        android:layout_marginVertical="2dp"
-                        android:background="@drawable/pdf_btn_style"
-                        android:text="DELD PDF 1 (XYZ).pdf"
-                        android:textAllCaps="false"
-                        android:textSize="18sp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/pdf" />
+
+                        <Button
+                            android:id="@+id/deld_pdf1_btn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="300dp"
+                            android:layout_height="45dp"
+                            android:layout_marginVertical="2dp"
+                            android:background="@drawable/pdf_btn_style"
+                            android:text="DELD PDF 1 (XYZ).pdf"
+                            android:textAllCaps="false"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            android:background="@android:color/white"
-            >
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textCG"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="CG :- "
-                    android:textColor="#4C3508"
-                    android:textSize="27sp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="8dp"
-                    android:src="@drawable/pdf"/>
-
-                <Button
-                    android:id="@+id/cg_pdf1_btn"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="300dp"
-                    android:layout_height="45dp"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/pdf_btn_style"
-                    android:text="CG PDF 1 (XYZ).pdf"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"/>
-
-            </LinearLayout>
-
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            android:background="@android:color/white"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textDM"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="DM :- "
-                    android:textColor="#4C3508"
-                    android:textSize="27sp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"/>
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/white"
+                android:padding="30dp"
+                app:cardCornerRadius="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf"/>
+                    <TextView
+                        android:id="@+id/textCG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="CG :- "
+                        android:textColor="#4C3508"
+                        android:textSize="27sp"
+                        android:textStyle="italic" />
 
-                    <Button
-                        android:id="@+id/dm_pdf1_btn"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="300dp"
-                        android:layout_height="45dp"
-                        android:layout_marginVertical="2dp"
-                        android:background="@drawable/pdf_btn_style"
-                        android:text="DM PDF 1 (XYZ).pdf"
-                        android:textAllCaps="false"
-                        android:textSize="18sp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/pdf" />
+
+                        <Button
+                            android:id="@+id/cg_pdf1_btn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="300dp"
+                            android:layout_height="45dp"
+                            android:layout_marginVertical="2dp"
+                            android:background="@drawable/pdf_btn_style"
+                            android:text="CG PDF 1 (XYZ).pdf"
+                            android:textAllCaps="false"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
-            </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/white"
+                android:padding="30dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textDM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="DM :- "
+                        android:textColor="#4C3508"
+                        android:textSize="27sp"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="8dp" />
+
+                        <Button
+                            android:id="@+id/dm_pdf1_btn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="300dp"
+                            android:layout_height="45dp"
+                            android:layout_marginVertical="2dp"
+                            android:background="@drawable/pdf_btn_style"
+                            android:text="DM PDF 1 (XYZ).pdf"
+                            android:textAllCaps="false"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 
@@ -311,4 +336,4 @@
     <!--TODO : Add another button if another pdf for all SUBJECTS if needed -->
 
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
