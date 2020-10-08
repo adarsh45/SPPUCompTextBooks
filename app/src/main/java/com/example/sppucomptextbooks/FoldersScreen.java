@@ -1,21 +1,28 @@
 package com.example.sppucomptextbooks;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.shreyaspatil.easyupipayment.EasyUpiPayment;
 import com.shreyaspatil.easyupipayment.exception.AppNotFoundException;
 import com.shreyaspatil.easyupipayment.listener.PaymentStatusListener;
@@ -24,24 +31,52 @@ import com.shreyaspatil.easyupipayment.model.TransactionDetails;
 public class FoldersScreen extends AppCompatActivity implements PaymentStatusListener {
 
     public static final String TAG = "Payment button";
-
-    // Folders Screen - Buttons to move to Specific Subject
-
-
     private TextView textPayStatus;
 
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    FirebaseDatabase myDB;
+    DatabaseReference rootRef;
+    String paymentGivenValue;
 
-//TODO : PDF test to be done with intent
+    private ScrollView scrollView;
+    private LinearLayout linearLayout;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
 
         textPayStatus = findViewById(R.id.text_pay_status);
 
-        FirebaseAuth.getInstance();
+        scrollView = findViewById(R.id.scrollView);
+        linearLayout = findViewById(R.id.linearLayout);
 
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        myDB = FirebaseDatabase.getInstance();
+        rootRef = myDB.getReference("Users").child(currentUser.getUid());
+
+        rootRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                paymentGivenValue = snapshot.child("paymentGiven").getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        if (Integer.parseInt(paymentGivenValue) != 0){
+            scrollView.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.GONE);
+        }
+        else if (Integer.parseInt(paymentGivenValue) == 0){
+            scrollView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -71,7 +106,6 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
     }
 
-
     public void payThroughUPI(View view){
         EasyUpiPayment.Builder builder = null;
         EasyUpiPayment easyUpiPayment = null;
@@ -100,9 +134,6 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
     }
 
-
-
-
     @Override
     public void onBackPressed() {
         Intent a = new Intent(Intent.ACTION_MAIN);
@@ -120,8 +151,18 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void onTransactionCompleted(TransactionDetails transactionDetails) {
         Log.d(TAG, "onTransactionCompleted: "+ transactionDetails.toString());
         textPayStatus.setText(transactionDetails.toString());
-    }
+        rootRef.child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(FoldersScreen.this, "Successful Payment Registered ... Restart app to access the folders", Toast.LENGTH_LONG).show();
 
+                } else {
+                    Toast.makeText(FoldersScreen.this, "Unsuccessful Payment Registered Contact the Developers", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 
 
 }
