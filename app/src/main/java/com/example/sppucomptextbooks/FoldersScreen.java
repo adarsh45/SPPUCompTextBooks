@@ -27,9 +27,6 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
     // Folders Screen - Buttons to move to Specific Subject
 
-    TextView textSubject, textFDS, textDM, textOOP, textDELD, textCG;
-
-    Button fdsBtn1, dmBtn1, oopBtn1, deldBtn1, cgBtn1;
 
     private TextView textPayStatus;
 
@@ -45,75 +42,33 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
         FirebaseAuth.getInstance();
 
-        textSubject = findViewById(R.id.textSubj);
-        textFDS = findViewById(R.id.textFDS);
-        textDM = findViewById(R.id.textDM);
-        textDELD = findViewById(R.id.textDELD);
-        textOOP = findViewById(R.id.textOOP);
-        textCG = findViewById(R.id.textCG);
 
-        fdsBtn1 = findViewById(R.id.fds_pdf1_btn);
-        dmBtn1 = findViewById(R.id.dm_pdf1_btn);
-        oopBtn1 = findViewById(R.id.oop_pdf1_btn);
-        deldBtn1 = findViewById(R.id.deld_pdf1_btn);
-        cgBtn1 = findViewById(R.id.cg_pdf1_btn);
+    }
 
-        fdsBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+    public void openPdf(View view) {
+
+        Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+        switch (view.getId()){
+            case R.id.fds_pdf1_btn:
                 intent.putExtra("pdfName", "syllabus.pdf");
-                startActivity(intent);
-                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
+                break;
 
-            }
-        });
-
-
-        dmBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+            case R.id.dm_pdf1_btn:
                 intent.putExtra("pdfName", "syllabus.pdf");
-                startActivity(intent);
-                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        oopBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                break;
+            case R.id.deld_pdf1_btn:
                 intent.putExtra("pdfName", "syllabus.pdf");
-                startActivity(intent);
-                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
-            }
-        });
 
-
-        cgBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                break;
+            case R.id.oop_pdf1_btn:
                 intent.putExtra("pdfName", "syllabus.pdf");
-                startActivity(intent);
-                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        deldBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
+                break;
+            case R.id.cg_pdf1_btn:
                 intent.putExtra("pdfName", "syllabus.pdf");
-                startActivity(intent);
-                Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
+                break;
+        }
+        startActivity(intent);
+        Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -166,6 +121,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         Log.d(TAG, "onTransactionCompleted: "+ transactionDetails.toString());
         textPayStatus.setText(transactionDetails.toString());
     }
+
 
 
 }

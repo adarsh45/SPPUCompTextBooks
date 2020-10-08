@@ -93,6 +93,7 @@
 
                         <Button
                             android:id="@+id/fds_pdf1_btn"
+                            android:onClick="openPdf"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:layout_width="300dp"
                             android:layout_height="45dp"
@@ -148,6 +149,7 @@
 
                         <Button
                             android:id="@+id/oop_pdf1_btn"
+                            android:onClick="openPdf"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:layout_width="300dp"
                             android:layout_height="45dp"
@@ -202,6 +204,7 @@
 
                         <Button
                             android:id="@+id/deld_pdf1_btn"
+                            android:onClick="openPdf"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:layout_width="300dp"
                             android:layout_height="45dp"
@@ -256,6 +259,7 @@
 
                         <Button
                             android:id="@+id/cg_pdf1_btn"
+                            android:onClick="openPdf"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:layout_width="300dp"
                             android:layout_height="45dp"
@@ -312,6 +316,7 @@
 
                         <Button
                             android:id="@+id/dm_pdf1_btn"
+                            android:onClick="openPdf"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:layout_width="300dp"
                             android:layout_height="45dp"
