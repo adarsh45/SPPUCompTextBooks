@@ -37,7 +37,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     FirebaseUser currentUser;
     FirebaseDatabase myDB;
     DatabaseReference rootRef;
-    String paymentGivenValue;
+    String paymentGivenStatus;
 
     private ScrollView scrollView;
     private LinearLayout linearLayout;
@@ -55,12 +55,18 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         myDB = FirebaseDatabase.getInstance();
-        rootRef = myDB.getReference("Users").child(currentUser.getUid());
+        rootRef = myDB.getReference("Users");
 
-        rootRef.addValueEventListener(new ValueEventListener() {
+        rootRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                paymentGivenValue = snapshot.child("paymentGiven").getValue().toString();
+                for (DataSnapshot data : snapshot.getChildren()){
+                    if(data.getKey().equals("paymentGiven")){
+                        String payStatus = data.getValue().toString();
+                        Log.d("Payment Given Status : " , payStatus);
+                        paymentGivenStatus = payStatus; // Value becomes null outside ...
+                    }
+                }
             }
 
             @Override
@@ -69,14 +75,8 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
             }
         });
 
-        if (Integer.parseInt(paymentGivenValue) != 0){
-            scrollView.setVisibility(View.VISIBLE);
-            linearLayout.setVisibility(View.GONE);
-        }
-        else if (Integer.parseInt(paymentGivenValue) == 0){
-            scrollView.setVisibility(View.GONE);
-            linearLayout.setVisibility(View.VISIBLE);
-        }
+        Toast.makeText(this, ""+paymentGivenStatus, Toast.LENGTH_LONG).show(); // Value null
+
 
     }
 
@@ -151,7 +151,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void onTransactionCompleted(TransactionDetails transactionDetails) {
         Log.d(TAG, "onTransactionCompleted: "+ transactionDetails.toString());
         textPayStatus.setText(transactionDetails.toString());
-        rootRef.child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
+        rootRef.child("Users").child(currentUser.getUid()).child("paymentGiven").setValue("done").addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){

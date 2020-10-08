@@ -3,12 +3,12 @@ package com.example.sppucomptextbooks.pojo;
 public class StudentData {
 
     private String uid, name, msTeamsId, phoneNumber;
-    private int paymentGiven = 0;
+    private String paymentGiven = "not";
     private boolean isAlreadyLoggedIn = false;
 
     public StudentData(){}
 
-    public StudentData(String uid, String name, String msTeamsId, String phoneNumber, int paymentGiven, boolean isAlreadyLoggedIn) {
+    public StudentData(String uid, String name, String msTeamsId, String phoneNumber, String paymentGiven, boolean isAlreadyLoggedIn) {
         this.uid = uid;
         this.name = name;
         this.msTeamsId = msTeamsId;
@@ -49,11 +49,11 @@ public class StudentData {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getPaymentGiven() {
+    public String getPaymentGiven() {
         return paymentGiven;
     }
 
-    public void setPaymentGiven(int paymentGiven) {
+    public void setPaymentGiven(String paymentGiven) {
         this.paymentGiven = paymentGiven;
     }
 
