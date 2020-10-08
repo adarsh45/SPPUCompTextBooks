@@ -64,7 +64,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                     if(data.getKey().equals("paymentGiven")){
                         String payStatus = data.getValue().toString();
                         Log.d("Payment Given Status : " , payStatus);
-                        paymentGivenStatus = payStatus; // Value becomes null outside ...
+                        paymentGivenStatus = payStatus; // Value becomes null outside
                     }
                 }
             }
@@ -151,7 +151,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void onTransactionCompleted(TransactionDetails transactionDetails) {
         Log.d(TAG, "onTransactionCompleted: "+ transactionDetails.toString());
         textPayStatus.setText(transactionDetails.toString());
-        rootRef.child("Users").child(currentUser.getUid()).child("paymentGiven").setValue("done").addOnCompleteListener(new OnCompleteListener<Void>() {
+        rootRef.child("Users").child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){

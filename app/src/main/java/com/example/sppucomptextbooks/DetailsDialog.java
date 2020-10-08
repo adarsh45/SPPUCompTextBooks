@@ -83,7 +83,7 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
         String msTeamsId = etMsTeamsId.getText().toString();
         String userId = currentUser.getUid();
 
-        studentData = new StudentData(userId, name, msTeamsId, phoneNumber, "not", true);
+        studentData = new StudentData(userId, name, msTeamsId, phoneNumber, 0, true);
 
         rootRef.child(userId).setValue(studentData).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
