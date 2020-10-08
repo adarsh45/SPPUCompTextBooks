@@ -57,6 +57,8 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         myDB = FirebaseDatabase.getInstance();
         rootRef = myDB.getReference("Users");
 
+        Toast.makeText(this, "Please Wait Loading Data", Toast.LENGTH_SHORT).show();
+
         rootRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -64,7 +66,14 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                     if(data.getKey().equals("paymentGiven")){
                         String payStatus = data.getValue().toString();
                         Log.d("Payment Given Status : " , payStatus);
-                        paymentGivenStatus = payStatus; // Value becomes null outside
+                        paymentGivenStatus = payStatus;
+                        if (payStatus.equals("0")){
+                            linearLayout.setVisibility(View.VISIBLE);
+                            scrollView.setVisibility(View.GONE);
+                        } else {
+                            linearLayout.setVisibility(View.GONE);
+                            scrollView.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }
@@ -74,9 +83,6 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
             }
         });
-
-        Toast.makeText(this, ""+paymentGivenStatus, Toast.LENGTH_LONG).show(); // Value null
-
 
     }
 
