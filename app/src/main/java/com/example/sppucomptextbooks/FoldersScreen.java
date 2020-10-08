@@ -86,6 +86,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
     }
 
+    // PDF buttons
     public void openPdf(View view) {
 
         Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
@@ -157,6 +158,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void onTransactionCompleted(TransactionDetails transactionDetails) {
         Log.d(TAG, "onTransactionCompleted: "+ transactionDetails.toString());
         textPayStatus.setText(transactionDetails.toString());
+        // After
         rootRef.child("Users").child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
