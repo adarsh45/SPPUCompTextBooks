@@ -30,7 +30,6 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
         setContentView(R.layout.activity_pdf_viewer);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-//TODO : PDF test to be done with intent
         pdfFileName = getIntent().getStringExtra("pdfName");
 
         pdfView = findViewById(R.id.pdfView);
