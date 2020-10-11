@@ -96,7 +96,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                 break;
 
             case R.id.dm_pdf1_btn:
-                intent.putExtra("pdfName", "syllabus.pdf");
+                intent.putExtra("pdfName", "dm_chap2.pdf");
                 break;
             case R.id.deld_pdf1_btn:
                 intent.putExtra("pdfName", "syllabus.pdf");
@@ -158,19 +158,21 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void onTransactionCompleted(TransactionDetails transactionDetails) {
         Log.d(TAG, "onTransactionCompleted: "+ transactionDetails.toString());
         textPayStatus.setText(transactionDetails.toString());
-        // After
-        rootRef.child("Users").child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(FoldersScreen.this, "Successful Payment Registered ... Restart app to access the folders", Toast.LENGTH_LONG).show();
 
-                } else {
-                    Toast.makeText(FoldersScreen.this, "Unsuccessful Payment Registered Contact the Developers", Toast.LENGTH_LONG).show();
+        // After Payment Update
+
+        if (transactionDetails.getTransactionStatus().equals("SUCCESS")){
+            rootRef.child("Users").child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(FoldersScreen.this, "Successful Payment Registered ... Restart app to access the folders", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(FoldersScreen.this, "Unsuccessful Payment Registered Contact the Developers", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
-
-
 }

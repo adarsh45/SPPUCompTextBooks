@@ -34,7 +34,7 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
         pdfFileName = getIntent().getStringExtra("pdfName");
 
         pdfView = findViewById(R.id.pdfView);
-        pdfView.fromAsset("syllabus.pdf")
+        pdfView.fromAsset(pdfFileName)
                 .defaultPage(pageNumber)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
