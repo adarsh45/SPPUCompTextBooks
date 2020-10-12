@@ -12,7 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sppucomptextbooks.subjects.SubjectCG;
+import com.example.sppucomptextbooks.subjects.SubjectDELD;
+import com.example.sppucomptextbooks.subjects.SubjectDM;
 import com.example.sppucomptextbooks.subjects.SubjectFDS;
+import com.example.sppucomptextbooks.subjects.SubjectOOP;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -95,12 +99,30 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void openSubject(View view) {
         // Move to Subject Screen
 
-        Intent intent = new Intent(FoldersScreen.this, SubjectFDS.class);
-        startActivity(intent);
 
-//        switch (view.getId()){
-//            case R.id.fds_btn:
-//        }
+        switch (view.getId()){
+            case R.id.fds_btn:
+                Intent intentFDS = new Intent(FoldersScreen.this, SubjectFDS.class);
+                startActivity(intentFDS);
+                break;
+            case R.id.dm_btn:
+                Intent intentDM = new Intent(FoldersScreen.this, SubjectDM.class);
+                startActivity(intentDM);
+                break;
+            case R.id.oop_btn:
+                Intent intentOOP = new Intent(FoldersScreen.this, SubjectOOP.class);
+                startActivity(intentOOP);
+                break;
+            case R.id.cg_btn:
+                Intent intentCG = new Intent(FoldersScreen.this, SubjectCG.class);
+                startActivity(intentCG);
+                break;
+            case R.id.deld_btn:
+                Intent intentDELD = new Intent(FoldersScreen.this, SubjectDELD.class);
+                startActivity(intentDELD);
+                break;
+
+        }
     }
 
     public void payThroughUPI(View view){

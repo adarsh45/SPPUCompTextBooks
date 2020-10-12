@@ -25,6 +25,10 @@
         </activity>
         <activity android:name=".FoldersScreen" />
         <activity android:name=".subjects.SubjectFDS"/>
+        <activity android:name=".subjects.SubjectDELD"/>
+        <activity android:name=".subjects.SubjectCG"/>
+        <activity android:name=".subjects.SubjectDM"/>
+        <activity android:name=".subjects.SubjectOOP"/>
         <activity android:name=".PDFViewer" />
     </application>
 
