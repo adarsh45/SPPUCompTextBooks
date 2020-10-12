@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoldersScreen" />
-        <activity android:name=".SubjectFDS"/>
+        <activity android:name=".subjects.SubjectFDS"/>
         <activity android:name=".PDFViewer" />
     </application>
 

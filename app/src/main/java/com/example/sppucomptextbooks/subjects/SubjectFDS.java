@@ -1,4 +1,4 @@
-package com.example.sppucomptextbooks;
+package com.example.sppucomptextbooks.subjects;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sppucomptextbooks.PDFViewer;
+import com.example.sppucomptextbooks.R;
 
 public class SubjectFDS extends AppCompatActivity {
 
