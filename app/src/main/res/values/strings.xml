@@ -4,4 +4,42 @@
     <string name="details_welcome">Just fill in &amp; Get started</string>
     <string name="start">Start</string>
     <string name="cancel">Cancel</string>
+
+    <string name="subject_fds">Fundamentals of Data Structures</string>
+    <string name="subject_dm">Discrete Mathematics</string>
+    <string name="subject_oop">Object Oriented Programming</string>
+    <string name="subject_cg">Computer Graphics</string>
+    <string name="subject_deld">Digital Electronics and Logic Design</string>
+
+    <!-- TODO:- Add chapter names for each subject  -->
+    <string name="fds_chap1">FDS Chapter 1</string>
+    <string name="fds_chap2">FDS Chapter 2</string>
+    <string name="fds_chap3">FDS Chapter 3</string>
+    <string name="fds_chap4">FDS Chapter 4</string>
+    <string name="fds_chap5">FDS Chapter 5</string>
+
+    <string name="dm_chap1">DM Chapter 1</string>
+    <string name="dm_chap2">DM Chapter 2</string>
+    <string name="dm_chap3">DM Chapter 3</string>
+    <string name="dm_chap4">DM Chapter 4</string>
+    <string name="dm_chap5">DM Chapter 5</string>
+
+    <string name="oop_chap1">OOP Chapter 1</string>
+    <string name="oop_chap2">OOP Chapter 2</string>
+    <string name="oop_chap3">OOP Chapter 3</string>
+    <string name="oop_chap4">OOP Chapter 4</string>
+    <string name="oop_chap5">OOP Chapter 5</string>
+
+    <string name="deld_chap1">DELD Chapter 1</string>
+    <string name="deld_chap2">DELD Chapter 2</string>
+    <string name="deld_chap3">DELD Chapter 3</string>
+    <string name="deld_chap4">DELD Chapter 4</string>
+    <string name="deld_chap5">DELD Chapter 5</string>
+
+    <string name="cg_chap1">CG Chapter 1</string>
+    <string name="cg_chap2">CG Chapter 2</string>
+    <string name="cg_chap3">CG Chapter 3</string>
+    <string name="cg_chap4">CG Chapter 4</string>
+    <string name="cg_chap5">CG Chapter 5</string>
+
 </resources>

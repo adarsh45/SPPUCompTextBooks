@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -30,6 +31,12 @@ import com.shreyaspatil.easyupipayment.model.TransactionDetails;
 
 public class FoldersScreen extends AppCompatActivity implements PaymentStatusListener {
 
+    //TODO:- CHECK the after payment update ... data updation in database
+    //TODO:- It takes time to load data .... line 65 and ahead ....
+    //TODO:- Issue in activity_folder layout ..... linear btn layout height error ....
+
+    //TODO:- Run the app ... by changing the paymentGiven in database to greater than 0.... to understand the 2nd and 3rd error....
+
     public static final String TAG = "Payment button";
     private TextView textPayStatus;
 
@@ -39,8 +46,9 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     DatabaseReference rootRef;
     String paymentGivenStatus;
 
-    private ScrollView scrollView;
-    private LinearLayout linearLayout;
+    private LinearLayout linearPayLayout;
+    private LinearLayout linearButtonLayout;
+
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -49,8 +57,8 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
         textPayStatus = findViewById(R.id.text_pay_status);
 
-        scrollView = findViewById(R.id.scrollView);
-        linearLayout = findViewById(R.id.linearLayout);
+        linearPayLayout = findViewById(R.id.linear_pay_layout);
+        linearButtonLayout = findViewById(R.id.linear_btn_layout);
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -68,11 +76,11 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                         Log.d("Payment Given Status : " , payStatus);
                         paymentGivenStatus = payStatus;
                         if (payStatus.equals("0")){
-                            linearLayout.setVisibility(View.VISIBLE);
-                            scrollView.setVisibility(View.GONE);
+                            linearPayLayout.setVisibility(View.VISIBLE);
+                            linearButtonLayout.setVisibility(View.GONE);
                         } else {
-                            linearLayout.setVisibility(View.GONE);
-                            scrollView.setVisibility(View.VISIBLE);
+                            linearPayLayout.setVisibility(View.GONE);
+                            linearButtonLayout.setVisibility(View.VISIBLE);
                         }
                     }
                 }
@@ -86,31 +94,15 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
     }
 
-    // PDF buttons
-    public void openPdf(View view) {
+    public void openSubject(View view) {
+        // Move to Subject Screen
 
-        Intent intent = new Intent(FoldersScreen.this, PDFViewer.class);
-        switch (view.getId()){
-            case R.id.fds_pdf1_btn:
-                intent.putExtra("pdfName", "syllabus.pdf");
-                break;
-
-            case R.id.dm_pdf1_btn:
-                intent.putExtra("pdfName", "dm_chap2.pdf");
-                break;
-            case R.id.deld_pdf1_btn:
-                intent.putExtra("pdfName", "syllabus.pdf");
-
-                break;
-            case R.id.oop_pdf1_btn:
-                intent.putExtra("pdfName", "syllabus.pdf");
-                break;
-            case R.id.cg_pdf1_btn:
-                intent.putExtra("pdfName", "syllabus.pdf");
-                break;
-        }
+        Intent intent = new Intent(FoldersScreen.this, SubjectFDS.class);
         startActivity(intent);
-        Toast.makeText(FoldersScreen.this, "Please Wait", Toast.LENGTH_SHORT).show();
+
+//        switch (view.getId()){
+//            case R.id.fds_btn:
+//        }
     }
 
     public void payThroughUPI(View view){
@@ -175,4 +167,6 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
             });
         }
     }
+
+
 }
