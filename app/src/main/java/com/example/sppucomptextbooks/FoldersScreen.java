@@ -33,11 +33,6 @@ import com.shreyaspatil.easyupipayment.model.TransactionDetails;
 
 public class FoldersScreen extends AppCompatActivity implements PaymentStatusListener {
 
-    //TODO:- CHECK the after payment update ... data updation in database
-    //TODO:- It takes time to load data .... line 65 and ahead ....
-    //TODO:- Issue in activity_folder layout ..... linear btn layout height error ....
-
-    //TODO:- Run the app ... by changing the paymentGiven in database to greater than 0.... to understand the 2nd and 3rd error....
 
     public static final String TAG = "Payment button";
     private TextView textPayStatus;

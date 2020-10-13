@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import static android.os.Environment.DIRECTORY_DOWNLOADS;
 public class SubjectCG extends AppCompatActivity {
     private TextView subjName;
     private Button chap1Btn, chap2Btn, chap3Btn, chap4Btn, chap5Btn, chap6Btn;
+    private ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
 
     StorageReference mStorageRef;
     StorageReference ref;
@@ -60,6 +62,13 @@ public class SubjectCG extends AppCompatActivity {
         chap6Btn = findViewById(R.id.chap6_btn);
         chap6Btn.setText(R.string.fds_unit6);
 
+        btn1 = findViewById(R.id.downloadBtn_1);
+        btn2 = findViewById(R.id.downloadBtn_2);
+        btn3 = findViewById(R.id.downloadBtn_3);
+        btn4 = findViewById(R.id.downloadBtn_4);
+        btn5 = findViewById(R.id.downloadBtn_5);
+        btn6 = findViewById(R.id.downloadBtn_6);
+
     }
 
     //     PDF buttons
@@ -69,40 +78,42 @@ public class SubjectCG extends AppCompatActivity {
         switch (view.getId()){
             case R.id.chap1_btn:
                 pdfName = "crack.pdf";
-                checkIfFileDownloaded(pdfName, intent);
+                checkIfFileDownloaded(pdfName, intent, btn1);
                 break;
             case R.id.chap2_btn:
                 pdfName = "crack.pdf";
-                checkIfFileDownloaded(pdfName, intent);
+                checkIfFileDownloaded(pdfName, intent, btn2);
                 break;
             case R.id.chap3_btn:
                 pdfName = "crack.pdf";
-                checkIfFileDownloaded(pdfName, intent);
+                checkIfFileDownloaded(pdfName, intent, btn3);
                 break;
             case R.id.chap4_btn:
                 pdfName = "crack.pdf";
-                checkIfFileDownloaded(pdfName, intent);
+                checkIfFileDownloaded(pdfName, intent, btn4);
                 break;
             case R.id.chap5_btn:
                 pdfName = "crack.pdf";
-                checkIfFileDownloaded(pdfName, intent);
+                checkIfFileDownloaded(pdfName, intent, btn5);
                 break;
             case R.id.chap6_btn:
                 pdfName = "crack.pdf";
-                checkIfFileDownloaded(pdfName, intent);
+                checkIfFileDownloaded(pdfName, intent, btn6);
                 break;
         }
 
     }
 
-    private void checkIfFileDownloaded(String pdfName, Intent intent){
+    private void checkIfFileDownloaded(String pdfName, Intent intent, ImageButton btnID){
         final File tempFile = new File(this.getExternalFilesDir( Environment.DIRECTORY_DOWNLOADS ), pdfName);
         if ( tempFile.exists() ) {
             intent.putExtra("pdfName", pdfName);
             startActivity(intent);
+            btnID.setVisibility(View.GONE);
             Toast.makeText(SubjectCG.this, "Please Wait", Toast.LENGTH_SHORT).show();
         }
         else{
+            btnID.setVisibility(View.VISIBLE);
             Toast.makeText(SubjectCG.this,"Please Download the file to prevent data usage", Toast.LENGTH_SHORT).show();
         }
     }

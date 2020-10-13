@@ -46,4 +46,7 @@
     <string name="cg_unit5">Curves and Fractals</string>
     <string name="cg_unit6">Intro to Animation and Gaming</string>
 
+    <string name="image_pdf_content_descrip">PDFImage</string>
+    <string name="download_btn_content_descrip">DownloadButton</string>
+
 </resources>

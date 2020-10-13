@@ -51,7 +51,8 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf" />
+                        android:src="@drawable/pdf"
+                        android:contentDescription="@string/image_pdf_content_descrip" />
 
                     <Button
                         android:id="@+id/chap1_btn"
@@ -66,11 +67,14 @@
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/downloadBtn_1"
+                        android:visibility="gone"
                         android:onClick="downloadFile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/stat_sys_download_done" />
+                        app:srcCompat="@android:drawable/stat_sys_download_done"
+                        android:contentDescription="@string/download_btn_content_descrip" />
 
 
                 </LinearLayout>
@@ -95,7 +99,8 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf" />
+                        android:src="@drawable/pdf"
+                        android:contentDescription="@string/image_pdf_content_descrip" />
 
                     <Button
                         android:id="@+id/chap2_btn"
@@ -110,11 +115,14 @@
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/downloadBtn_2"
+                        android:visibility="gone"
                         android:onClick="downloadFile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/stat_sys_download_done" />
+                        app:srcCompat="@android:drawable/stat_sys_download_done"
+                        android:contentDescription="@string/download_btn_content_descrip" />
 
                 </LinearLayout>
 
@@ -139,7 +147,8 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf" />
+                        android:src="@drawable/pdf"
+                        android:contentDescription="@string/image_pdf_content_descrip" />
 
                     <Button
                         android:id="@+id/chap3_btn"
@@ -154,11 +163,14 @@
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/downloadBtn_3"
+                        android:visibility="gone"
                         android:onClick="downloadFile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/stat_sys_download_done" />
+                        app:srcCompat="@android:drawable/stat_sys_download_done"
+                        android:contentDescription="@string/download_btn_content_descrip" />
 
                 </LinearLayout>
 
@@ -182,7 +194,8 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf" />
+                        android:src="@drawable/pdf"
+                        android:contentDescription="@string/image_pdf_content_descrip" />
 
                     <Button
                         android:id="@+id/chap4_btn"
@@ -197,11 +210,14 @@
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/downloadBtn_4"
+                        android:visibility="gone"
                         android:onClick="downloadFile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/stat_sys_download_done" />
+                        app:srcCompat="@android:drawable/stat_sys_download_done"
+                        android:contentDescription="@string/download_btn_content_descrip" />
 
                 </LinearLayout>
 
@@ -226,7 +242,8 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf" />
+                        android:src="@drawable/pdf"
+                        android:contentDescription="@string/image_pdf_content_descrip" />
 
                     <Button
                         android:id="@+id/chap5_btn"
@@ -241,11 +258,14 @@
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/downloadBtn_5"
+                        android:visibility="gone"
                         android:onClick="downloadFile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/stat_sys_download_done" />
+                        app:srcCompat="@android:drawable/stat_sys_download_done"
+                        android:contentDescription="@string/download_btn_content_descrip" />
 
                 </LinearLayout>
 
@@ -270,7 +290,8 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginStart="8dp"
-                        android:src="@drawable/pdf" />
+                        android:src="@drawable/pdf"
+                        android:contentDescription="@string/image_pdf_content_descrip" />
 
                     <Button
                         android:id="@+id/chap6_btn"
@@ -285,11 +306,14 @@
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/downloadBtn_6"
+                        android:visibility="gone"
                         android:onClick="downloadFile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/stat_sys_download_done" />
+                        app:srcCompat="@android:drawable/stat_sys_download_done"
+                        android:contentDescription="@string/download_btn_content_descrip" />
 
                 </LinearLayout>
 
