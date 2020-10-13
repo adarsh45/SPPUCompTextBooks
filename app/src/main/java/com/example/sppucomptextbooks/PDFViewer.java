@@ -1,7 +1,8 @@
 package com.example.sppucomptextbooks;
 
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.WindowManager;
 
@@ -15,6 +16,7 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.github.barteksc.pdfviewer.util.FitPolicy;
 import com.shockwave.pdfium.PdfDocument;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -30,10 +32,18 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
         setContentView(R.layout.activity_pdf_viewer);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-        pdfFileName = getIntent().getStringExtra("pdfName");
+        pdfFileName = "/"+getIntent().getStringExtra("pdfName");
 
         pdfView = findViewById(R.id.pdfView);
-        pdfView.fromAsset(pdfFileName)
+
+
+        File file = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), pdfFileName);
+        Uri filePath = Uri.fromFile(file);
+        Log.d("file", file.getPath());
+
+
+        pdfView.fromUri(filePath)
+                .password("youmustbegeniouslystupid")
                 .defaultPage(pageNumber)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
@@ -47,7 +57,6 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
 
     @Override
     public void loadComplete(int nbPages) {
-
         printBookmarksTree(pdfView.getTableOfContents(), "-");
     }
 
