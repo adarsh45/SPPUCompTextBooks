@@ -8,6 +8,18 @@ public class StudentData {
 
     public StudentData(){}
 
+    @Override
+    public String toString() {
+        return "StudentData{" +
+                "uid='" + uid + '\'' +
+                ", name='" + name + '\'' +
+                ", msTeamsId='" + msTeamsId + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", paymentGiven=" + paymentGiven +
+                ", isAlreadyLoggedIn=" + isAlreadyLoggedIn +
+                '}';
+    }
+
     public StudentData(String uid, String name, String msTeamsId, String phoneNumber, int paymentGiven, boolean isAlreadyLoggedIn) {
         this.uid = uid;
         this.name = name;
