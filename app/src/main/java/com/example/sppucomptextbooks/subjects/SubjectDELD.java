@@ -28,7 +28,7 @@ import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class SubjectDELD extends AppCompatActivity {
     private TextView subjName;
-    private Button chap1Btn, chap2Btn, chap3Btn, chap4Btn, chap5Btn;
+    private Button chap1Btn, chap2Btn, chap3Btn, chap4Btn, chap5Btn, chap6Btn;
 
     StorageReference mStorageRef;
     StorageReference ref;
@@ -43,19 +43,22 @@ public class SubjectDELD extends AppCompatActivity {
         subjName.setText(R.string.subject_deld);
 
         chap1Btn = findViewById(R.id.chap1_btn);
-        chap1Btn.setText(R.string.deld_chap1);
+        chap1Btn.setText(R.string.deld_unit1);
 
         chap2Btn = findViewById(R.id.chap2_btn);
-        chap2Btn.setText(R.string.deld_chap2);
+        chap2Btn.setText(R.string.deld_unit2);
 
         chap3Btn = findViewById(R.id.chap3_btn);
-        chap3Btn.setText(R.string.deld_chap3);
+        chap3Btn.setText(R.string.deld_unit3);
 
         chap4Btn = findViewById(R.id.chap4_btn);
-        chap4Btn.setText(R.string.deld_chap4);
+        chap4Btn.setText(R.string.deld_unit4);
 
         chap5Btn = findViewById(R.id.chap5_btn);
-        chap5Btn.setText(R.string.deld_chap5);
+        chap5Btn.setText(R.string.deld_unit5);
+
+        chap6Btn = findViewById(R.id.chap6_btn);
+        chap6Btn.setText(R.string.fds_unit6);
 
     }
 
@@ -82,6 +85,11 @@ public class SubjectDELD extends AppCompatActivity {
                 checkIfFileDownloaded(pdfName, intent);
                 break;
             case R.id.chap5_btn:
+                pdfName = "crack.pdf";
+                checkIfFileDownloaded(pdfName, intent);
+                break;
+
+            case R.id.chap6_btn:
                 pdfName = "crack.pdf";
                 checkIfFileDownloaded(pdfName, intent);
                 break;
