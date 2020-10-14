@@ -111,7 +111,6 @@ public class SubjectFDS extends AppCompatActivity {
             intent.putExtra("pdfName", pdfName);
             startActivity(intent);
             btnID.setVisibility(View.GONE);
-            Toast.makeText(SubjectFDS.this, "Please Wait", Toast.LENGTH_SHORT).show();
         }
         else{
             btnID.setVisibility(View.VISIBLE);

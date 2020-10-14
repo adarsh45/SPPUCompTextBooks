@@ -110,7 +110,6 @@ public class SubjectCG extends AppCompatActivity {
             intent.putExtra("pdfName", pdfName);
             startActivity(intent);
             btnID.setVisibility(View.GONE);
-            Toast.makeText(SubjectCG.this, "Please Wait", Toast.LENGTH_SHORT).show();
         }
         else{
             btnID.setVisibility(View.VISIBLE);
