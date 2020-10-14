@@ -43,7 +43,9 @@ import com.shreyaspatil.easyupipayment.model.TransactionDetails;
 
 import java.util.Objects;
 
+
 public class FoldersScreen extends AppCompatActivity implements PaymentStatusListener, NavigationView.OnNavigationItemSelectedListener{
+
 
     public static final String TAG = "Payment button";
 

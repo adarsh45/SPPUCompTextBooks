@@ -14,6 +14,44 @@
     <string name="subject_cg">Computer Graphics</string>
     <string name="subject_deld">Digital Electronics and Logic Design</string>
 
+    <string name="fds_unit1">Intro to Algorithms and Data Structures</string>
+    <string name="fds_unit2">Linear DS using Sequential Organization</string>
+    <string name="fds_unit3">Searching and Sorting</string>
+    <string name="fds_unit4">Linked List</string>
+    <string name="fds_unit5">Stack</string>
+    <string name="fds_unit6">Queue</string>
+
+    <string name="dm_unit1">Set Theory and Logic</string>
+    <string name="dm_unit2">Relations and Functions</string>
+    <string name="dm_unit3">Counting Principal</string>
+    <string name="dm_unit4">Graph Theory</string>
+    <string name="dm_unit5">Trees</string>
+    <string name="dm_unit6">Algebraic Structures and Coding Theory</string>
+
+    <string name="oop_unit1">Fundamentals of OOP</string>
+    <string name="oop_unit2">Inheritance and Pointers</string>
+    <string name="oop_unit3">Polymorphism</string>
+    <string name="oop_unit4">Files and Streams</string>
+    <string name="oop_unit5">Exception Handling and Templates</string>
+    <string name="oop_unit6">Standard Template Library(STL)</string>
+
+    <string name="deld_unit1">Minimization Techniques</string>
+    <string name="deld_unit2">Combinational Logic Design </string>
+    <string name="deld_unit3">Sequential Logic Design</string>
+    <string name="deld_unit4">Algorithmic State Machine and Programmable LD</string>
+    <string name="deld_unit5">Logic Families</string>
+    <string name="deld_unit6">Introduction to Computer Architecture</string>
+
+    <string name="cg_unit1">Graphics Primitives and Scan Conversion Algo</string>
+    <string name="cg_unit2">Polygon, Windowing and Clipping</string>
+    <string name="cg_unit3">2D, 3D Transformations and Projections</string>
+    <string name="cg_unit4">Light, Color, Shading and Hidden Surfaces</string>
+    <string name="cg_unit5">Curves and Fractals</string>
+    <string name="cg_unit6">Intro to Animation and Gaming</string>
+
+    <string name="image_pdf_content_descrip">PDFImage</string>
+    <string name="download_btn_content_descrip">DownloadButton</string>
+  
     <string name="payment_instruction">In order to use this amazing service, Please pay one time subscription amount! Thank you! </string>
     <string name="payment_btn_text">Pay ₹ 50/-</string>
     <string name="fifty_rs">₹ 50/-</string>
@@ -21,36 +59,4 @@
     <string name="payment_error_text">Paid, but still not able to read books ?\nTry re-opening the app\nor contact our developers</string>
     <string name="welcome_subjects">Hola, Tap on subject to get started</string>
     <string name="welcome_sign_in">Sign Up for an\nAmazing Experience</string>
-
-    <!-- TODO:- Add chapter names for each subject  -->
-    <string name="fds_chap1">FDS Chapter 1</string>
-    <string name="fds_chap2">FDS Chapter 2</string>
-    <string name="fds_chap3">FDS Chapter 3</string>
-    <string name="fds_chap4">FDS Chapter 4</string>
-    <string name="fds_chap5">FDS Chapter 5</string>
-
-    <string name="dm_chap1">DM Chapter 1</string>
-    <string name="dm_chap2">DM Chapter 2</string>
-    <string name="dm_chap3">DM Chapter 3</string>
-    <string name="dm_chap4">DM Chapter 4</string>
-    <string name="dm_chap5">DM Chapter 5</string>
-
-    <string name="oop_chap1">OOP Chapter 1</string>
-    <string name="oop_chap2">OOP Chapter 2</string>
-    <string name="oop_chap3">OOP Chapter 3</string>
-    <string name="oop_chap4">OOP Chapter 4</string>
-    <string name="oop_chap5">OOP Chapter 5</string>
-
-    <string name="deld_chap1">DELD Chapter 1</string>
-    <string name="deld_chap2">DELD Chapter 2</string>
-    <string name="deld_chap3">DELD Chapter 3</string>
-    <string name="deld_chap4">DELD Chapter 4</string>
-    <string name="deld_chap5">DELD Chapter 5</string>
-
-    <string name="cg_chap1">CG Chapter 1</string>
-    <string name="cg_chap2">CG Chapter 2</string>
-    <string name="cg_chap3">CG Chapter 3</string>
-    <string name="cg_chap4">CG Chapter 4</string>
-    <string name="cg_chap5">CG Chapter 5</string>
-
 </resources>

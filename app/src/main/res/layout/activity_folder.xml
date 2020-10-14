@@ -53,6 +53,8 @@
         android:orientation="vertical"
         android:visibility="visible">
 
+        
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,7 +70,10 @@
             android:textAlignment="textStart"
             android:text="@string/payment_instruction"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:gravity="center"
+            android:visibility="gone"/>
+
 
         <Button
             android:onClick="payThroughUPI"
