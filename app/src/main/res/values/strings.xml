@@ -5,6 +5,9 @@
     <string name="start">Start</string>
     <string name="cancel">Cancel</string>
 
+    <string name="open">open</string>
+    <string name="close">close</string>
+
     <string name="subject_fds">Fundamentals of Data Structures</string>
     <string name="subject_dm">Discrete Mathematics</string>
     <string name="subject_oop">Object Oriented Programming</string>
@@ -48,5 +51,12 @@
 
     <string name="image_pdf_content_descrip">PDFImage</string>
     <string name="download_btn_content_descrip">DownloadButton</string>
-
+  
+    <string name="payment_instruction">In order to use this amazing service, Please pay one time subscription amount! Thank you! </string>
+    <string name="payment_btn_text">Pay ₹ 50/-</string>
+    <string name="fifty_rs">₹ 50/-</string>
+    <string name="payment_status_note_text">Note: If payment is deducted but status is not SUCCESS. Please contact our developers</string>
+    <string name="payment_error_text">Paid, but still not able to read books ?\nTry re-opening the app\nor contact our developers</string>
+    <string name="welcome_subjects">Hola, Tap on subject to get started</string>
+    <string name="welcome_sign_in">Sign Up for an\nAmazing Experience</string>
 </resources>
