@@ -67,7 +67,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:padding="10dp"
-            android:textAlignment="textStart"
             android:text="@string/payment_instruction"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"

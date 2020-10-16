@@ -56,13 +56,17 @@
                     android:orientation="horizontal"
                     android:background="@color/colorHint">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/pdf"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/image_pdf_content_descrip" />
-
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:text="01"
+                        />
+                  
                     <Button
                         android:id="@+id/chap1_btn"
                         style="@style/Widget.AppCompat.Button.Borderless"
@@ -105,12 +109,16 @@
                     android:orientation="horizontal"
                     android:background="@color/colorHint">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/pdf"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/image_pdf_content_descrip" />
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:text="02"
+                        />
 
                     <Button
                         android:id="@+id/chap2_btn"
@@ -154,12 +162,16 @@
                     android:orientation="horizontal"
                     android:background="@color/colorHint">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/pdf"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/image_pdf_content_descrip" />
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:text="03"
+                        />
 
                     <Button
                         android:id="@+id/chap3_btn"
@@ -203,12 +215,16 @@
                     android:background="@color/colorHint"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/image_pdf_content_descrip"
-                        android:src="@drawable/pdf" />
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:text="04"
+                        />
 
                     <Button
                         android:id="@+id/chap4_btn"
@@ -252,12 +268,16 @@
                     android:orientation="horizontal"
                     android:background="@color/colorHint">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/pdf"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/image_pdf_content_descrip" />
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:text="05"
+                        />
 
                     <Button
                         android:id="@+id/chap5_btn"
@@ -301,12 +321,16 @@
                     android:orientation="horizontal"
                     android:background="@color/colorHint">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/pdf"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/image_pdf_content_descrip" />
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:text="06"
+                        />
 
                     <Button
                         android:id="@+id/chap6_btn"
