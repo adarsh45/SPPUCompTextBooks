@@ -11,6 +11,6 @@
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#c9c9c9"/>
+        android:background="@color/colorAccent"/>
 
 </LinearLayout>

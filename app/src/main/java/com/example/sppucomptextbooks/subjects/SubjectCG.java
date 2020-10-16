@@ -41,8 +41,14 @@ public class SubjectCG extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subjects);
 
-        subjName = findViewById(R.id.textSubj);
-        subjName.setText(R.string.subject_cg);
+        //        set title and back button on action bar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle(R.string.subject_fds);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+//        subjName = findViewById(R.id.textSubj);
+//        subjName.setText(R.string.subject_cg);
 
         chap1Btn = findViewById(R.id.chap1_btn);
         chap1Btn.setText(R.string.cg_unit1);
