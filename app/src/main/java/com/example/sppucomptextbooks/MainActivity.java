@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // SignIn Screen :
     private ConstraintLayout layout;
-    private ProgressBar progressBar;
+//    private ProgressBar progressBar;
     private EditText etPhone , etOtp;
     private Button btnSendOTP, btnVerify;
 

@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
-
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -24,12 +23,38 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoldersScreen" />
-        <activity android:name=".subjects.SubjectFDS"/>
-        <activity android:name=".subjects.SubjectDELD"/>
-        <activity android:name=".subjects.SubjectCG"/>
-        <activity android:name=".subjects.SubjectDM"/>
-        <activity android:name=".subjects.SubjectOOP"/>
-        <activity android:name=".PDFViewer" />
+        <activity android:name=".subjects.SubjectFDS"
+            android:theme="@style/AppThemeWithActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FoldersScreen" />
+        </activity>
+        <activity android:name=".subjects.SubjectDELD"
+            android:theme="@style/AppThemeWithActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FoldersScreen" />
+        </activity>
+        <activity android:name=".subjects.SubjectCG"
+            android:theme="@style/AppThemeWithActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FoldersScreen" />
+        </activity>
+        <activity android:name=".subjects.SubjectDM"
+            android:theme="@style/AppThemeWithActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FoldersScreen" />
+        </activity>
+        <activity android:name=".subjects.SubjectOOP"
+            android:theme="@style/AppThemeWithActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FoldersScreen" />
+        </activity>
+        <activity android:name=".PDFViewer"
+            android:theme="@style/AppThemeWithActionBar"/>
     </application>
 
 </manifest>

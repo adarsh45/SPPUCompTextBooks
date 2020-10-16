@@ -77,7 +77,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
         initialize();
 
-        Toast.makeText(this, "Please Wait Loading Data", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Please Wait Loading Data", Toast.LENGTH_SHORT).show();
 
         rootRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
