@@ -117,7 +117,6 @@ public class SubjectOOP extends AppCompatActivity {
             intent.putExtra("pdfName", pdfName);
             startActivity(intent);
             btnID.setVisibility(View.GONE);
-            Toast.makeText(SubjectOOP.this, "Please Wait", Toast.LENGTH_SHORT).show();
         }
         else{
             btnID.setVisibility(View.VISIBLE);
