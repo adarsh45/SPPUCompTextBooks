@@ -137,7 +137,7 @@ public class SubjectFDS extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(SubjectFDS.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

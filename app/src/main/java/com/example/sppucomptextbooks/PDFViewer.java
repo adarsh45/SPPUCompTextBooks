@@ -3,9 +3,12 @@ package com.example.sppucomptextbooks;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -14,6 +17,11 @@ import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.github.barteksc.pdfviewer.util.FitPolicy;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.shockwave.pdfium.PdfDocument;
 
 import java.io.File;
@@ -21,6 +29,11 @@ import java.util.List;
 
 
 public class PDFViewer extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener, OnPageErrorListener {
+
+    private DatabaseReference passRef;
+    private static final String PASSREFDB = "pdfPassword";
+
+    private String FETCHED_PDF_PASS = null;
 
     int pageNumber = 0;
     PDFView pdfView;
@@ -32,6 +45,8 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
         setContentView(R.layout.activity_pdf_viewer);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
+        passRef = FirebaseDatabase.getInstance().getReference(PASSREFDB);
+
         pdfFileName = "/"+getIntent().getStringExtra("pdfName");
 
         pdfView = findViewById(R.id.pdfView);
@@ -41,9 +56,18 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
         Uri filePath = Uri.fromFile(file);
         Log.d("file", file.getPath());
 
+        getPassFromDB(filePath);
+    }
+
+    private void openPDF(Uri filePath, String pass) {
+        if (pass == null || TextUtils.isEmpty(pass)){
+            Toast.makeText(this, "Error opening file, check your Network please!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         pdfView.fromUri(filePath)
-                .password("youmustbegeniouslystupid")
+//                .password("youmustbegeniouslystupid")
+                .password(pass)
                 .defaultPage(pageNumber)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
@@ -55,6 +79,23 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
                 .load();
     }
 
+    private void getPassFromDB(final Uri filePath) {
+        passRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue() != null){
+                    FETCHED_PDF_PASS = snapshot.getValue(String.class);
+                    openPDF(filePath, FETCHED_PDF_PASS);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PDFViewer.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     @Override
     public void loadComplete(int nbPages) {
         printBookmarksTree(pdfView.getTableOfContents(), "-");
@@ -62,8 +103,6 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
 
     @Override
     public void onPageChanged(int page, int pageCount) {
-
-
         pageNumber = page;
         setTitle(String.format("%s %s / %s", pdfFileName, page + 1, pageCount));
     }
