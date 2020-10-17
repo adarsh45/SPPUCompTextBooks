@@ -47,12 +47,12 @@ public class PDFViewer extends AppCompatActivity implements OnPageChangeListener
 
         passRef = FirebaseDatabase.getInstance().getReference(PASSREFDB);
 
-        pdfFileName = "/"+getIntent().getStringExtra("pdfName");
+        pdfFileName = getIntent().getStringExtra("pdfName");
 
         pdfView = findViewById(R.id.pdfView);
 
 
-        File file = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), pdfFileName);
+        File file = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "/"+pdfFileName);
         Uri filePath = Uri.fromFile(file);
         Log.d("file", file.getPath());
 

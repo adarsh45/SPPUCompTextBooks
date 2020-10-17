@@ -84,28 +84,28 @@ public class SubjectDELD extends AppCompatActivity {
         Intent intent = new Intent(SubjectDELD.this, PDFViewer.class);
         switch (view.getId()){
             case R.id.chap1_btn:
-                pdfName = "crack.pdf";
+                pdfName = "DELD_UNIT_1_protected.pdf";
                 checkIfFileDownloaded(pdfName, intent, btn1);
                 break;
             case R.id.chap2_btn:
-                pdfName = "crack.pdf";
+                pdfName = "DELD_UNIT_2_protected.pdf";
                 checkIfFileDownloaded(pdfName, intent, btn2);
                 break;
             case R.id.chap3_btn:
-                pdfName = "crack.pdf";
+                pdfName = "DELD_UNIT_3_protected.pdf";
                 checkIfFileDownloaded(pdfName, intent, btn3);
                 break;
             case R.id.chap4_btn:
-                pdfName = "crack.pdf";
+                pdfName = "DELD_UNIT_4_protected.pdf";
                 checkIfFileDownloaded(pdfName, intent, btn4);
                 break;
             case R.id.chap5_btn:
-                pdfName = "crack.pdf";
+                pdfName = "DELD_UNIT_5_protected.pdf";
                 checkIfFileDownloaded(pdfName, intent, btn5);
                 break;
 
             case R.id.chap6_btn:
-                pdfName = "crack.pdf";
+                pdfName = "DELD_UNIT_6_protected.pdf";
                 checkIfFileDownloaded(pdfName, intent, btn6);
                 break;
         }
