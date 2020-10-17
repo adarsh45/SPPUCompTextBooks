@@ -32,6 +32,8 @@ public class SubjectOOP extends AppCompatActivity {
     private Button chap1Btn, chap2Btn, chap3Btn, chap4Btn, chap5Btn, chap6Btn;
     private ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
 
+    String pdfName;
+
     StorageReference mStorageRef;
     StorageReference ref;
 
@@ -79,7 +81,6 @@ public class SubjectOOP extends AppCompatActivity {
 
     //     PDF buttons
     public void openPdf(View view) {
-        String pdfName;
         Intent intent = new Intent(SubjectOOP.this, PDFViewer.class);
         switch (view.getId()){
             case R.id.chap1_btn:
@@ -126,12 +127,12 @@ public class SubjectOOP extends AppCompatActivity {
 
     public void downloadFile(View view){
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        ref = mStorageRef.child("crack.pdf");
+        ref = mStorageRef.child("OOP").child(pdfName);
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 String url = uri.toString();
-                downloadFileManager(SubjectOOP.this, "crack", ".pdf", DIRECTORY_DOWNLOADS, url);
+                downloadFileManager(SubjectOOP.this, pdfName.replace(".pdf", ""), ".pdf", DIRECTORY_DOWNLOADS, url);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
