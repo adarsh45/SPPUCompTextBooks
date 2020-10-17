@@ -41,7 +41,7 @@ public class SubjectOOP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subjects);
 
-        //        set title and back button on action bar
+//        set title and back button on action bar
         if (getSupportActionBar() != null){
             getSupportActionBar().setTitle(R.string.subject_fds);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -136,7 +136,7 @@ public class SubjectOOP extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(SubjectOOP.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

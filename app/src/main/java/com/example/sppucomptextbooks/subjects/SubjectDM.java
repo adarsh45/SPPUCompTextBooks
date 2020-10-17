@@ -135,7 +135,7 @@ public class SubjectDM extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(SubjectDM.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

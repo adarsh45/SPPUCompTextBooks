@@ -22,7 +22,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Test User"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:layout_gravity="center"/>
@@ -43,7 +42,6 @@
             android:id="@+id/nav_user_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+91 1122334455"
             android:layout_marginStart="8dp"
             android:textColor="@android:color/white"
             android:textSize="18sp"
@@ -61,7 +59,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:text="COMPSET0000"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:layout_gravity="center"/>

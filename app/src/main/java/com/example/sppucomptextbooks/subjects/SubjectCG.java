@@ -135,7 +135,7 @@ public class SubjectCG extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(SubjectCG.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

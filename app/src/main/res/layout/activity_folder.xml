@@ -70,8 +70,8 @@
             android:text="@string/payment_instruction"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:gravity="center"
-            android:visibility="gone"/>
+            android:gravity="start"
+            android:visibility="visible"/>
 
 
         <Button
