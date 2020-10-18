@@ -117,8 +117,9 @@
                         android:layout_marginStart="8dp"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:textSize="26sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="02"
                         />
 
@@ -170,8 +171,9 @@
                         android:layout_marginStart="8dp"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:textSize="26sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="03"
                         />
 
@@ -223,8 +225,9 @@
                         android:layout_marginStart="8dp"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:textSize="26sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="04"
                         />
 
@@ -276,8 +279,9 @@
                         android:layout_marginStart="8dp"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:textSize="26sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="05"
                         />
 
@@ -329,8 +333,9 @@
                         android:layout_marginStart="8dp"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:textSize="26sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="06"
                         />
 
