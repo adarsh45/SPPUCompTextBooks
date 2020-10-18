@@ -76,7 +76,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         setContentView(R.layout.activity_folder);
 
         initialize();
-        Toast.makeText(this, "Checking for Payment Status!!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Checking for Payment Status!!!", Toast.LENGTH_LONG).show();
 
         rootRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -96,6 +96,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                         layoutPaymentStatus.setVisibility(View.VISIBLE);
                         layoutSubjects.setVisibility(View.VISIBLE);
                     } else {
+                        Toast.makeText(FoldersScreen.this, "Please Pay To avail our services", Toast.LENGTH_SHORT).show();
                         layoutPayment.setVisibility(View.VISIBLE);
                         layoutPaymentStatus.setVisibility(View.GONE);
                         layoutSubjects.setVisibility(View.GONE);
