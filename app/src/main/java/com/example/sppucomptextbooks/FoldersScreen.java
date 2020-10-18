@@ -192,12 +192,12 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         try {
             builder = new EasyUpiPayment.Builder(FoldersScreen.this)
                     .with(PaymentApp.ALL)
-                    .setPayeeVpa("8669297840@ybl")
-                    .setPayeeName("Atharva Dhoot")
+                    .setPayeeVpa("9552412863@ybl")
+                    .setPayeeName("Adarsh Shete")
                     .setTransactionId(studentData.getUid())
                     .setTransactionRefId(studentData.getMsTeamsId())
-                    .setDescription("Test for UPI payment app")
-                    .setAmount("5.00");
+                    .setDescription("Comp-Books app subscription")
+                    .setAmount("59.00");
         } catch (IllegalStateException isExc){
             Log.d(TAG, "payThroughUPI: "+ isExc.getLocalizedMessage());
             Toast.makeText(this, isExc.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
@@ -239,7 +239,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         // update value in DB
 
         if (transactionDetails.getTransactionStatus().equals("SUCCESS")){
-            rootRef.child(currentUser.getUid()).child("paymentGiven").setValue(50).addOnCompleteListener(new OnCompleteListener<Void>() {
+            rootRef.child(currentUser.getUid()).child("paymentGiven").setValue(59).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
