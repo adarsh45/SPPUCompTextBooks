@@ -1,6 +1,8 @@
 package com.example.sppucomptextbooks;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -42,6 +44,7 @@ import com.shreyaspatil.easyupipayment.model.PaymentApp;
 import com.shreyaspatil.easyupipayment.model.TransactionDetails;
 
 import java.util.Objects;
+import java.util.Random;
 
 
 public class FoldersScreen extends AppCompatActivity implements PaymentStatusListener, NavigationView.OnNavigationItemSelectedListener{
@@ -69,11 +72,16 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
     private StudentData studentData = null;
 
+    private Random random = new Random();
+
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
+
+//        shared pref
+//        SharedPreferences sp = getSharedPreferences("paymentCounter", Context.MODE_PRIVATE);
 
         initialize();
         Toast.makeText(this, "Checking for Payment Status!!!", Toast.LENGTH_LONG).show();
@@ -190,20 +198,22 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     public void payThroughUPI(View view){
         EasyUpiPayment.Builder builder = null;
         EasyUpiPayment easyUpiPayment = null;
+
+        String randomPaymentCounter = String.format("%04d", random.nextInt(10000));
+
         try {
             builder = new EasyUpiPayment.Builder(FoldersScreen.this)
                     .with(PaymentApp.ALL)
                     .setPayeeVpa("9552412863@ybl")
                     .setPayeeName("Adarsh Shete")
-                    .setTransactionId(studentData.getUid())
-                    .setTransactionRefId(studentData.getMsTeamsId())
+                    .setTransactionId(studentData.getUid()+ randomPaymentCounter)
+                    .setTransactionRefId(studentData.getMsTeamsId()+ randomPaymentCounter)
                     .setDescription("Comp-Books app subscription")
                     .setAmount("59.00");
         } catch (IllegalStateException isExc){
             Log.d(TAG, "payThroughUPI: "+ isExc.getLocalizedMessage());
             Toast.makeText(this, isExc.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-        }
-        finally {
+        } finally {
             try {
                 easyUpiPayment = builder.build();
             } catch (AppNotFoundException e){
@@ -212,6 +222,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
             } finally {
                 easyUpiPayment.startPayment();
                 easyUpiPayment.setPaymentStatusListener(this);
+
             }
         }
 
@@ -237,9 +248,12 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         textPayStatus.setText(transactionDetails.getTransactionStatus().toString());
         textPayAmount.setText(transactionDetails.getAmount());
 
+//        Toast.makeText(this, transactionDetails.toString(), Toast.LENGTH_SHORT).show();
+
         // update value in DB
 
-        if (transactionDetails.getTransactionStatus().equals("SUCCESS")){
+        if (transactionDetails.getTransactionStatus().toString().equals("SUCCESS")){
+            Toast.makeText(this, "tr is success", Toast.LENGTH_SHORT).show();
             rootRef.child(currentUser.getUid()).child("paymentGiven").setValue(59).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -251,6 +265,8 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                     }
                 }
             });
+        } else {
+            Toast.makeText(this, "Something wrong with transaction! If amount is deducted contact our developers", Toast.LENGTH_LONG).show();
         }
     }
 

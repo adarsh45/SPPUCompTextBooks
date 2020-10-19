@@ -28,7 +28,7 @@ import java.io.File;
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class SubjectOOP extends AppCompatActivity {
-    private TextView subjName;
+//    private TextView subjName;
     private Button chap1Btn, chap2Btn, chap3Btn, chap4Btn, chap5Btn, chap6Btn;
     private ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
 
@@ -45,7 +45,7 @@ public class SubjectOOP extends AppCompatActivity {
 
 //        set title and back button on action bar
         if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle(R.string.subject_fds);
+            getSupportActionBar().setTitle(R.string.subject_oop);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
