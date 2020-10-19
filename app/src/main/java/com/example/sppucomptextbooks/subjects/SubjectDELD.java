@@ -45,7 +45,7 @@ public class SubjectDELD extends AppCompatActivity {
 
         //        set title and back button on action bar
         if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle(R.string.subject_fds);
+            getSupportActionBar().setTitle(R.string.subject_deld);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

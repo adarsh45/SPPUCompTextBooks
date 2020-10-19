@@ -29,7 +29,7 @@ import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class SubjectFDS extends AppCompatActivity {
 
-    private TextView subjName;
+//    private TextView subjName;
     private Button chap1Btn, chap2Btn, chap3Btn, chap4Btn, chap5Btn, chap6Btn;
     private ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
 

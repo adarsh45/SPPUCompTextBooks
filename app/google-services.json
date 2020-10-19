@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "680287900640-l89rrm5c6pogtpmlgm3d73hf72s51m8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sppucomptextbooks",
+            "certificate_hash": "a6a3778ace46e12a00217add5b90fedd3afc95b6"
+          }
+        },
+        {
+          "client_id": "680287900640-25ipfffjkkdi5nc65io5c88rakiu0sij.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sppucomptextbooks",
+            "certificate_hash": "f031796312953cd062a7c45b3c350fde9da78823"
+          }
+        },
+        {
           "client_id": "680287900640-6sb9tp2p216totjk2hffpn2ec1nc29gs.apps.googleusercontent.com",
           "client_type": 3
         }

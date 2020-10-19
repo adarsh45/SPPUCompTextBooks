@@ -45,7 +45,7 @@ public class SubjectCG extends AppCompatActivity {
 
         //        set title and back button on action bar
         if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle(R.string.subject_fds);
+            getSupportActionBar().setTitle(R.string.subject_cg);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
