@@ -34,6 +34,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "LoginActivity:";
+
     // SignIn Screen :
     private ConstraintLayout layout;
 //    private ProgressBar progressBar;
@@ -93,7 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.btn_send_otp:
                 getPhoneNumber();
-                checkIfAlreadyLoggedIn();
                 sendOtp(view);
                 break;
             case R.id.btn_verify:
@@ -124,13 +125,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()){
+                    Log.d(TAG, "onDataChange: USER DOES NOT EXISTS");
                     isAlreadyLoggedIn = false;
+                    Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
+                    DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
+                    detailsDialog.show();
                     return;
                 }
                 for (DataSnapshot snap: snapshot.getChildren()){
                     StudentData studentData = snap.getValue(StudentData.class);
+                    Log.d(TAG, "onDataChange: USER EXISTS: "+ snap.toString());
                     assert studentData != null;
                     isAlreadyLoggedIn = studentData.isAlreadyLoggedIn();
+                    Log.d(TAG, "onComplete: isAlreadyLoggedIn: "+ isAlreadyLoggedIn);
+
+                    if (isAlreadyLoggedIn){
+                        //                                user account is already present
+                        Toast.makeText(MainActivity.this, "You are already logged in different device!\n" +
+                                "Mistake? Please contact developers!", Toast.LENGTH_LONG).show();
+                        mAuth.signOut();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
+                        DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
+                        detailsDialog.show();
+                    }
                 }
             }
 
@@ -139,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        Log.d(TAG, "checkIfAlreadyLoggedIn: isAlreadyLoggedIn"+isAlreadyLoggedIn);
         return isAlreadyLoggedIn;
     }
 
@@ -196,17 +216,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+                        Log.d(TAG, "onComplete: isLoggedInBefore: "+ isAlreadyLoggedIn);
+
                         if (task.isSuccessful()){
-                            if (isAlreadyLoggedIn){
-//                                user account is already present
-                                Toast.makeText(MainActivity.this, "You are already logged in different device!\n" +
-                                        "Mistake? Please contact developers!", Toast.LENGTH_LONG).show();
-                                mAuth.signOut();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
-                                DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
-                                detailsDialog.show();
-                            }
+
+                            checkIfAlreadyLoggedIn();
+
+//                            if (isAlreadyLoggedIn){
+////                                user account is already present
+//                                Toast.makeText(MainActivity.this, "You are already logged in different device!\n" +
+//                                        "Mistake? Please contact developers!", Toast.LENGTH_LONG).show();
+//                                mAuth.signOut();
+//                            } else {
+//                                Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
+//                                DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
+//                                detailsDialog.show();
+//                            }
 
                         } else {
                             Toast.makeText(MainActivity.this, "Something went wrong! Try again!", Toast.LENGTH_SHORT).show();
