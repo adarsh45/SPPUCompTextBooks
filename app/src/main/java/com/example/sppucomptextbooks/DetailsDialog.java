@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class DetailsDialog extends Dialog implements View.OnClickListener {
@@ -35,6 +37,7 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
     private Context context;
     private String phoneNumber;
     private EditText etName, etMsTeamsId;
+    private LinearLayout linearLayoutBtnDialog;
 
     private static final String TAG = "LOG DetailsDialog:";
 
@@ -58,12 +61,46 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
 
         etName = findViewById(R.id.et_name);
         etMsTeamsId = findViewById(R.id.et_ms_teams_id);
+        linearLayoutBtnDialog = findViewById(R.id.ll_button_dialog);
         Button btnRegister = findViewById(R.id.btn_start);
         Button btnCancel = findViewById(R.id.btn_cancel);
+
+        checkRegisteredUser();
 
         btnRegister.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
 
+    }
+
+    private void checkRegisteredUser(){
+        Query checkResgistedUserInfo = rootRef.orderByChild("phoneNumber").equalTo(phoneNumber);
+        checkResgistedUserInfo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    Log.d(TAG, "CheckUser: onDataChange - User Exists");
+                    linearLayoutBtnDialog.setVisibility(View.GONE);
+
+                    StudentData studentData = snapshot.getValue(StudentData.class);
+
+                    etName.setText(studentData.getName());
+                    etMsTeamsId.setText(studentData.getMsTeamsId());
+                    int paymentGiven = studentData.getPaymentGiven();
+
+                    updateDatabase(studentData.getName(), studentData.getMsTeamsId(), phoneNumber, paymentGiven,true);
+
+                }
+                else {
+                    Log.d(TAG, "CheckUser: onDataChange - New User");
+                    linearLayoutBtnDialog.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
@@ -87,30 +124,19 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
         }
         String name = etName.getText().toString();
         String msTeamsId = etMsTeamsId.getText().toString();
-        String userId = currentUser.getUid();
         int paymentGiven = 0;
-        
-        
-        rootRef.orderByChild("phone").equalTo(phoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    Log.d(TAG, "onDataChange: "+ snapshot.toString());
-                    Log.d(TAG, "onDataChange: EXISTING USER");
-                } else {
-                    Log.d(TAG, "onDataChange: NEW USER");
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d(TAG, "onCancelled: " + error.getMessage());
-            }
-        });
-        
-        studentData = new StudentData(userId, name, msTeamsId, phoneNumber, 0, true);
+        updateDatabase(name, msTeamsId, phoneNumber, paymentGiven, true);
 
-        rootRef.child(userId).setValue(studentData).addOnCompleteListener(new OnCompleteListener<Void>() {
+    }
+
+    private void updateDatabase(String name, String msTeamsId, String phoneNumber, int paymentGiven, boolean isAlreadyLogin){
+
+        String userID = currentUser.getUid();
+
+        studentData = new StudentData(userID, name, msTeamsId, phoneNumber, paymentGiven, isAlreadyLogin);
+
+        rootRef.child(userID).setValue(studentData).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
@@ -123,6 +149,5 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
                 dismiss();
             }
         });
-
     }
 }
