@@ -286,6 +286,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                 break;
             case R.id.menu_logout:
                 mAuth.signOut();
+                rootRef.child(currentUser.getUid()).child("alreadyLoggedIn").setValue(false);
                 Intent i = new Intent(FoldersScreen.this, MainActivity.class);
                 startActivity(i);
                 finish();
