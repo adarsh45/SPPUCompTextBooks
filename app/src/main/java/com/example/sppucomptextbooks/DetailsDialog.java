@@ -39,6 +39,8 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
     private EditText etName, etMsTeamsId;
     private LinearLayout linearLayoutBtnDialog;
 
+    private int paymentGiven = 0;
+
     private static final String TAG = "LOG DetailsDialog:";
 
     public DetailsDialog(@NonNull Context context, String phoneNumber) {
@@ -73,35 +75,32 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
     }
 
     private void checkRegisteredUser(){
-        Query checkResgistedUserInfo = rootRef.orderByChild("phoneNumber").equalTo(phoneNumber);
-        checkResgistedUserInfo.addValueEventListener(new ValueEventListener() {
+//        check for any auth issues
+        if (currentUser== null){
+            Log.d(TAG, "checkRegisteredUser: currentUser is NULL");
+            Toast.makeText(context, "Error logging in, Please try again!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        rootRef.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    Log.d(TAG, "CheckUser: onDataChange - User Exists");
-                    linearLayoutBtnDialog.setVisibility(View.GONE);
-
-                    for (DataSnapshot snap: snapshot.getChildren()){
-                        StudentData studentData = snap.getValue(StudentData.class);
-                        assert studentData != null;
-                        etName.setText(studentData.getName());
-                        etMsTeamsId.setText(studentData.getMsTeamsId());
-                        int paymentGiven = studentData.getPaymentGiven();
-                        Log.d(TAG, "DataSnapshot: name,msTeamID :- "+studentData.getName()+" ::: "+studentData.getMsTeamsId());
-                        updateDatabase(studentData.getName(), studentData.getMsTeamsId(), phoneNumber, paymentGiven,true);
-
-                    }
-
-                }
-                else {
-                    Log.d(TAG, "CheckUser: onDataChange - New User");
-                    linearLayoutBtnDialog.setVisibility(View.VISIBLE);
+                    Log.d(TAG, "onDataChange: USER ALREADY EXISTS");
+                    studentData = snapshot.getValue(StudentData.class);
+//                    set texts on edit texts
+                    assert studentData != null;
+                    etName.setText(studentData.getName());
+                    etMsTeamsId.setText(studentData.getMsTeamsId());
+                    paymentGiven = studentData.getPaymentGiven();
+                } else {
+                    Log.d(TAG, "onDataChange: USER IS NEW");
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d(TAG, "onCancelled: ERROR: "+ error.getMessage());
             }
         });
     }
@@ -127,23 +126,20 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
         }
         String name = etName.getText().toString();
         String msTeamsId = etMsTeamsId.getText().toString();
-        int paymentGiven = 0;
 
-        updateDatabase(name, msTeamsId, phoneNumber, paymentGiven, true);
+//        update values from edit texts if changed
+        studentData = new StudentData(currentUser.getUid(), name,msTeamsId,phoneNumber, paymentGiven,true);
+
+        updateDatabase(studentData);
 
     }
 
-    private void updateDatabase(String name, String msTeamsId, String phoneNumber, int paymentGiven, boolean isAlreadyLogin){
+    private void updateDatabase(StudentData data){
 
-        String userID = currentUser.getUid();
-
-        studentData = new StudentData(userID, name, msTeamsId, phoneNumber, paymentGiven, isAlreadyLogin);
-
-        rootRef.child(userID).setValue(studentData).addOnCompleteListener(new OnCompleteListener<Void>() {
+        rootRef.child(data.getUid()).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context, FoldersScreen.class);
                     context.startActivity(intent);
                 } else {
