@@ -81,13 +81,16 @@ public class DetailsDialog extends Dialog implements View.OnClickListener {
                     Log.d(TAG, "CheckUser: onDataChange - User Exists");
                     linearLayoutBtnDialog.setVisibility(View.GONE);
 
-                    StudentData studentData = snapshot.getValue(StudentData.class);
+                    for (DataSnapshot snap: snapshot.getChildren()){
+                        StudentData studentData = snap.getValue(StudentData.class);
+                        assert studentData != null;
+                        etName.setText(studentData.getName());
+                        etMsTeamsId.setText(studentData.getMsTeamsId());
+                        int paymentGiven = studentData.getPaymentGiven();
+                        Log.d(TAG, "DataSnapshot: name,msTeamID :- "+studentData.getName()+" ::: "+studentData.getMsTeamsId());
+                        updateDatabase(studentData.getName(), studentData.getMsTeamsId(), phoneNumber, paymentGiven,true);
 
-                    etName.setText(studentData.getName());
-                    etMsTeamsId.setText(studentData.getMsTeamsId());
-                    int paymentGiven = studentData.getPaymentGiven();
-
-                    updateDatabase(studentData.getName(), studentData.getMsTeamsId(), phoneNumber, paymentGiven,true);
+                    }
 
                 }
                 else {
