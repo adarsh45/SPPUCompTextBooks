@@ -84,11 +84,12 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 //        SharedPreferences sp = getSharedPreferences("paymentCounter", Context.MODE_PRIVATE);
 
         initialize();
-        Toast.makeText(this, "Checking for Payment Status!!!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Loading Data...", Toast.LENGTH_LONG).show();
 
-        rootRef.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+        rootRef.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
                     studentData = snapshot.getValue(StudentData.class);
                     String welcome = "Welcome, " + studentData.getName() + "!";
                     textWelcomeUser.setText(welcome);
@@ -104,11 +105,13 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
                         layoutPaymentStatus.setVisibility(View.VISIBLE);
                         layoutSubjects.setVisibility(View.VISIBLE);
                     } else {
-                        Toast.makeText(FoldersScreen.this, "Please Pay To avail our services", Toast.LENGTH_SHORT).show();
                         layoutPayment.setVisibility(View.VISIBLE);
                         layoutPaymentStatus.setVisibility(View.GONE);
                         layoutSubjects.setVisibility(View.GONE);
                     }
+                } else {
+                    Toast.makeText(FoldersScreen.this, "Error logging in! Please Logout and then try again!", Toast.LENGTH_SHORT).show();
+                }
 
             }
 
