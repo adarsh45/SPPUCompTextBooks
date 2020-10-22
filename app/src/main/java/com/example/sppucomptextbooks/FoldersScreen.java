@@ -254,7 +254,16 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
     @Override
     public void onTransactionCancelled() {
         textPayStatus.setText("Cancelled");
-        Toast.makeText(this, "Transaction cancelled!", Toast.LENGTH_SHORT).show();
+
+        MotionToast.Companion.darkColorToast(
+                this,
+                "Transaction Cancelled!",
+                MotionToast.TOAST_INFO,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.SHORT_DURATION,
+                ResourcesCompat.getFont(this, R.font.helvetica_regular)
+        );
+
     }
 
     @Override
@@ -268,20 +277,47 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
         // update value in DB
 
         if (transactionDetails.getTransactionStatus().toString().equals("SUCCESS")){
-            Toast.makeText(this, "tr is success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Transaction Successful", Toast.LENGTH_SHORT).show();
             rootRef.child(currentUser.getUid()).child("paymentGiven").setValue(59).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(FoldersScreen.this, "Successful Payment Registered ... Restart app to access the folders", Toast.LENGTH_LONG).show();
+
+                        MotionToast.Companion.darkColorToast(
+                                FoldersScreen.this,
+                                "Successful Payment Registered ... Restart app to access the folders",
+                                MotionToast.TOAST_SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(FoldersScreen.this, R.font.helveticabold)
+                        );
+
 
                     } else {
-                        Toast.makeText(FoldersScreen.this, "Unsuccessful Payment Registered Contact the Developers", Toast.LENGTH_LONG).show();
+
+                        MotionToast.Companion.darkColorToast(
+                                FoldersScreen.this,
+                                "Unsuccessful Payment Registered Contact the Developers",
+                                MotionToast.TOAST_ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(FoldersScreen.this, R.font.helveticabold)
+                        );
+
                     }
                 }
             });
         } else {
-            Toast.makeText(this, "Something wrong with transaction! If amount is deducted contact our developers", Toast.LENGTH_LONG).show();
+
+            MotionToast.Companion.darkColorToast(
+                    FoldersScreen.this,
+                    "Something wrong with transaction! If amount is deducted contact our developers",
+                    MotionToast.TOAST_ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(FoldersScreen.this, R.font.helveticabold)
+            );
+
         }
     }
 

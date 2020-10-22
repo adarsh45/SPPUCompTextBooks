@@ -3,6 +3,7 @@ package com.example.sppucomptextbooks;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
+
+import www.sanju.motiontoast.MotionToast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -127,7 +130,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!snapshot.exists()){
                     Log.d(TAG, "onDataChange: USER DOES NOT EXISTS");
                     isAlreadyLoggedIn = false;
-                    Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
+
+                    MotionToast.Companion.darkColorToast(
+                            MainActivity.this,
+                            "SIGN IN SUCCESS!!!",
+                            MotionToast.TOAST_SUCCESS,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.SHORT_DURATION,
+                            ResourcesCompat.getFont(MainActivity.this, R.font.helveticabold)
+                            );
+
                     DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
                     detailsDialog.show();
                     return;
@@ -140,12 +152,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Log.d(TAG, "onComplete: isAlreadyLoggedIn: "+ isAlreadyLoggedIn);
 
                     if (isAlreadyLoggedIn){
-                        //                                user account is already present
-                        Toast.makeText(MainActivity.this, "You are already logged in different device!\n" +
-                                "Mistake? Please contact developers!", Toast.LENGTH_LONG).show();
+                        //user account is already present
+
+                        MotionToast.Companion.darkColorToast(
+                                MainActivity.this,
+                                "You are already logged in different device!\n" +
+                                        "\"Mistake? Please contact developers!",
+                                MotionToast.TOAST_ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(MainActivity.this, R.font.helvetica_regular)
+                        );
+
                         mAuth.signOut();
                     } else {
-                        Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
+
+                        MotionToast.Companion.darkColorToast(
+                                MainActivity.this,
+                                "SIGN IN SUCCESS!!!",
+                                MotionToast.TOAST_SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.SHORT_DURATION,
+                                ResourcesCompat.getFont(MainActivity.this, R.font.helveticabold)
+                        );
+
                         DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
                         detailsDialog.show();
                     }
@@ -224,19 +254,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             checkIfAlreadyLoggedIn();
 
-//                            if (isAlreadyLoggedIn){
-////                                user account is already present
-//                                Toast.makeText(MainActivity.this, "You are already logged in different device!\n" +
-//                                        "Mistake? Please contact developers!", Toast.LENGTH_LONG).show();
-//                                mAuth.signOut();
-//                            } else {
-//                                Toast.makeText(MainActivity.this, "Sign in success!", Toast.LENGTH_SHORT).show();
-//                                DetailsDialog detailsDialog = new DetailsDialog(MainActivity.this, phone);
-//                                detailsDialog.show();
-//                            }
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Something went wrong! Try again!", Toast.LENGTH_SHORT).show();
+
+                            MotionToast.Companion.darkColorToast(
+                                    MainActivity.this,
+                                    "Something went wrong! Try again!",
+                                    MotionToast.TOAST_SUCCESS,
+                                    MotionToast.GRAVITY_BOTTOM,
+                                    MotionToast.SHORT_DURATION,
+                                    ResourcesCompat.getFont(MainActivity.this, R.font.helvetica_regular)
+                            );
+
                         }
                     }
                 });
