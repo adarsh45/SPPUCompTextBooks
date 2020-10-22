@@ -73,7 +73,7 @@ public class SubjectCG extends AppCompatActivity {
         chap5Btn.setText(R.string.cg_unit5);
 
         chap6Btn = findViewById(R.id.chap6_btn);
-        chap6Btn.setText(R.string.fds_unit6);
+        chap6Btn.setText(R.string.cg_unit6);
 
         btn1 = findViewById(R.id.downloadBtn_1);
         btn2 = findViewById(R.id.downloadBtn_2);
