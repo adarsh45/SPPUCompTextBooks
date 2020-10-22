@@ -87,10 +87,8 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 //        SharedPreferences sp = getSharedPreferences("paymentCounter", Context.MODE_PRIVATE);
 
         initialize();
-        MotionToast.Companion.setInfoBackgroundColor(R.color.custom_info_color);
-        MotionToast.Companion.setInfoColor(R.color.info_color);
 
-        MotionToast.Companion.createToast(this, "Loading Data....",
+        MotionToast.Companion.darkColorToast(this, "Loading Data....",
                 MotionToast.TOAST_INFO,
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.SHORT_DURATION,
