@@ -8,4 +8,7 @@
     <color name="colorPrimaryDark">#1D1E22</color>
     <color name="colorAccent">#D6E0F0</color>
     <color name="colorHint">#F1F3F8</color>
+
+    <color name="custom_info_color">#E0F0D6</color>
+    <color name="info_color">#125F70</color>
 </resources>

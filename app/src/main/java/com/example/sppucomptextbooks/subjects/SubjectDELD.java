@@ -1,8 +1,10 @@
 package com.example.sppucomptextbooks.subjects;
 
 import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.example.sppucomptextbooks.PDFViewer;
 import com.example.sppucomptextbooks.R;
@@ -24,6 +27,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
+
+import www.sanju.motiontoast.MotionToast;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
@@ -150,6 +155,19 @@ public class SubjectDELD extends AppCompatActivity {
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
         downloadManager.enqueue(request);
+        registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_NOTIFICATION_CLICKED));
 
     }
+
+    BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            MotionToast.Companion.darkColorToast(SubjectDELD.this,"The PDF can only be accessed through the APP",
+                    MotionToast.TOAST_WARNING,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(SubjectDELD.this,R.font.helvetica_regular));
+        }
+    };
 }

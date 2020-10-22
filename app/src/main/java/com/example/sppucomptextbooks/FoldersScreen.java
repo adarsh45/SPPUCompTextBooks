@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -45,6 +46,8 @@ import com.shreyaspatil.easyupipayment.model.TransactionDetails;
 
 import java.util.Objects;
 import java.util.Random;
+
+import www.sanju.motiontoast.MotionToast;
 
 
 public class FoldersScreen extends AppCompatActivity implements PaymentStatusListener, NavigationView.OnNavigationItemSelectedListener{
@@ -84,7 +87,16 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 //        SharedPreferences sp = getSharedPreferences("paymentCounter", Context.MODE_PRIVATE);
 
         initialize();
-        Toast.makeText(this, "Loading Data...", Toast.LENGTH_LONG).show();
+        MotionToast.Companion.setInfoBackgroundColor(R.color.custom_info_color);
+        MotionToast.Companion.setInfoColor(R.color.info_color);
+
+        MotionToast.Companion.createToast(this, "Loading Data....",
+                MotionToast.TOAST_INFO,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.SHORT_DURATION,
+                ResourcesCompat.getFont(this, R.font.helveticabold));
+
+
 
         rootRef.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
