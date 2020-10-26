@@ -88,7 +88,7 @@ public class FoldersScreen extends AppCompatActivity implements PaymentStatusLis
 
         initialize();
 
-        MotionToast.Companion.darkColorToast(this, "Loading Data....",
+        MotionToast.Companion.createToast(this, "Loading Data....",
                 MotionToast.TOAST_INFO,
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.SHORT_DURATION,

@@ -126,7 +126,12 @@ public class SubjectFDS extends AppCompatActivity {
         }
         else{
             btnID.setVisibility(View.VISIBLE);
-            Toast.makeText(SubjectFDS.this,"Please Download the file to prevent data usage", Toast.LENGTH_SHORT).show();
+            MotionToast.Companion.darkColorToast(this, "Download the file first and then Tap Here again to open!",
+                    MotionToast.TOAST_INFO,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.SHORT_DURATION,
+                    ResourcesCompat.getFont(this, R.font.helvetica_regular));
+//            Toast.makeText(SubjectFDS.this,"Please Download the file to prevent data usage", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -31,16 +31,6 @@
                 android:gravity="center"
                 android:layout_marginVertical="14dp"/>
 
-            <TextView
-                android:id="@+id/textSubj"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:textSize="28sp"
-                android:layout_marginVertical="10dp"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -366,6 +356,18 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/text_instructions"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textColor="#046"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/download_instruction"
+                android:textSize="16sp"
+                android:layout_marginVertical="10dp"/>
 
         </LinearLayout>
 

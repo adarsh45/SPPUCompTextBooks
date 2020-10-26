@@ -166,7 +166,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         mAuth.signOut();
                     } else {
-
                         MotionToast.Companion.darkColorToast(
                                 MainActivity.this,
                                 "SIGN IN SUCCESS!!!",

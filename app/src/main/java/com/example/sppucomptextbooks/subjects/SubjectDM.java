@@ -125,7 +125,12 @@ public class SubjectDM extends AppCompatActivity {
         }
         else{
             btnID.setVisibility(View.VISIBLE);
-            Toast.makeText(SubjectDM.this,"Please keep the file Downloaded for better internet management", Toast.LENGTH_SHORT).show();
+            MotionToast.Companion.darkColorToast(this, "Download the file first and then Tap Here again to open!",
+                    MotionToast.TOAST_INFO,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.SHORT_DURATION,
+                    ResourcesCompat.getFont(this, R.font.helvetica_regular));
+//            Toast.makeText(SubjectDM.this,"Please keep the file Downloaded for better internet management", Toast.LENGTH_SHORT).show();
         }
     }
 
